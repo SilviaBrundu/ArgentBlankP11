@@ -1,11 +1,16 @@
-import { Provider } from "react-redux"; //permet de rendre le store disponible dans l'application
-import { store } from "./store";
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "../pages/Home";
 
 function App() {
     return (
-        <Provider store={store}></Provider>
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     )
-}
-
-export default App
+  }
+  
+  export default App
