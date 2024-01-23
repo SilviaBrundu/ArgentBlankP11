@@ -1,0 +1,21 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 26px;
+}
+
+.navbar_signin{
+    display: flex;
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.iconSignin {
+    display: flex;
+    align-items: center;
+    margin-right: 7px;
+
+}
