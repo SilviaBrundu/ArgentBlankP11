@@ -4,6 +4,11 @@
     margin: 10px 26px;
 }
 
+.navbar img {
+    max-width: 100%;
+  width: 200px;
+}
+
 .navbar_signin{
     display: flex;
     text-decoration: none;

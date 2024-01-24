@@ -4,12 +4,9 @@ import IconMoney from '../../designs/img/icon-money.webp';
 import IconSecurity from '../../designs/img/icon-security.webp';
 import './index.css';
 
-
-
-
 function FeaturesHome() {
 	return (
-		<div className='features'>
+		<section className='features'>
 			<Features 
 				image={IconChat}
 				alt="Icon Chat"
@@ -28,7 +25,7 @@ function FeaturesHome() {
 				title="Security you can trust"
 				text="We use top of the line encryption to make sure your data and money is always safe."
 			/>
-        </div>
+        </section>
 	)
 }
 
