@@ -22,6 +22,10 @@
     margin-left: 0.25rem;
 }
 
+#remember-me {
+    cursor:pointer;
+}
+
 .sign-in-button {
     display: block;
     width: 100%;
@@ -34,4 +38,5 @@
     color: #fff;
     text-decoration: underline;
     border-style: none;
+    cursor: pointer;
 }
