@@ -6,7 +6,7 @@
 
 .navbar img {
     max-width: 100%;
-  width: 200px;
+    width: 200px;
 }
 
 .navbar_signin{
@@ -21,6 +21,11 @@
 .iconSignin {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-right: 7px;
 
+}
+
+.navbar-signin-text:hover {
+    text-decoration: underline;
 }

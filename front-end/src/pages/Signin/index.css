@@ -1,0 +1,15 @@
+.signin-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.signin {
+    box-sizing: border-box;
+    background-color: white;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: 2rem;
+}
