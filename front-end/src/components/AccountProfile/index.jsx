@@ -1,5 +1,5 @@
-import './index.css'
-import Account from '../Account'
+import './index.css';
+import Account from '../Account';
 
 function AccountProfile() {
     return (
