@@ -4,6 +4,12 @@
     margin: 10px 26px;
 }
 
+.navbar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navbar img {
     max-width: 100%;
     width: 200px;
@@ -15,7 +21,7 @@
     color: #2c3e50;
     font-size: 16px;
     font-weight: bold;
-
+    margin-right: 10px;
 }
 
 .iconSignin {

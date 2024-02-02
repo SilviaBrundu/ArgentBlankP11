@@ -10,8 +10,6 @@ function SignIn() {
       <Header />
       <main className='main bg-dark'>
         <section className='signin'>
-          <i className='fa-solid fa-circle-user iconSignin'></i>
-          <h1>Sign In</h1>
           <Form />    
         </section>
       </main>
