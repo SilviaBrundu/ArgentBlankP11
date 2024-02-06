@@ -16,7 +16,7 @@ function Form() {
     const error = useSelector((state) => state.login.error);
     //useNavigation est un crochet qui donne accès à navigation
     const navigate = useNavigate();
-  
+
     //j'initialise le state des deux variable a null 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -28,17 +28,23 @@ function Form() {
 
         try {
             //si je recupère le token alors je bascule sur profile sinon sur le message d'erreur 
-            if (dispatch(login({ email: username, password: password })).payload) {
-                navigate('/profile');
-            } else {
-            console.error('Error token');
-            }
+
+            dispatch(login({ email: username, password: password }))
+                .then((result) => {
+                    console.log(result);
+                    if (result.payload) {
+                        navigate('/profile');
+                    } else {
+                        console.error('Error token');
+                    }
+                })
+
         } catch (error) {
             console.error('Error token', error);
         }
     };
-          
-    return(
+
+    return (
         <>
             <i className='fa-solid fa-circle-user iconSignin'></i>
             <h1>Sign In</h1>
@@ -46,22 +52,22 @@ function Form() {
             <form onSubmit={handleLogin}>
                 <div className='input-wrapper'>
                     <label for='username'>Username</label>
-                    <input type='text' id='username' 
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required />
+                    <input type='text' id='username'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required />
                 </div>
                 <div className='input-wrapper'>
                     <label for='password'>Password</label>
-                    <input type='password' id='password' 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required />
+                    <input type='password' id='password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required />
                 </div>
                 <div className='input-remember'>
                     <input
-                    type='checkbox'
-                    id='remember-me'
+                        type='checkbox'
+                        id='remember-me'
                     />
                     <label for='remember-me'>Remember me</label>
                 </div>
@@ -71,6 +77,6 @@ function Form() {
             </form>
         </>
     )
-} 
+}
 
 export default Form

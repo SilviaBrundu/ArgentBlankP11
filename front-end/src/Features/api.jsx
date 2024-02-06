@@ -12,6 +12,7 @@ export const findLogin = async ({ email, password }) => {
           password,
         }
       );
+
       //je récupère le token
       return response.data.body.token;
     } catch (error) {

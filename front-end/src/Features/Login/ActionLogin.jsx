@@ -9,7 +9,8 @@ export const login = createAsyncThunk(
         try {
             //je créer une variable token ou je met ma fonction findLogin avec
             //en propos email et password pour return le token
-            const token = findLogin({ email, password });
+            const token = await findLogin({ email, password });
+        
             return token;
         } catch (error) {
         throw error;
