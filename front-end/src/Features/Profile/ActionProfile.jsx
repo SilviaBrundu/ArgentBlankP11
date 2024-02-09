@@ -1,5 +1,7 @@
-import { findProfile } from "../api"; 
+import { findProfile, updateUserNameProfile } from "../api";
 import { ALL_PROFILE_DATA } from "./ReducerProfile";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
 
 export const findProfileInfo = (token) => {
     return async (dispatch) => {
@@ -21,3 +23,17 @@ export const allDataProfile = (username, firstname, lastname) => {
         payload: { username, firstname, lastname },
     };
 };
+
+export const updateUserUsername = createAsyncThunk(
+    "profile/updateUserUsername",
+    async (updateUsername, { getState }) => {
+        const token = getState().login.token;
+
+        try {
+            await updateUserNameProfile(token, updateUsername);
+            return updateUsername;
+        } catch (error) {
+            throw error;
+        }
+    }
+);

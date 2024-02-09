@@ -1,14 +1,20 @@
 import Account from '../../components/Account';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { useSelector } from "react-redux";
 import ErrorProfileAccess from "../../components/ErrorProfileAccess"
 import './index.css';
+import FormProfile from '../../components/FormProfile';
+import { useSelector } from "react-redux";
+import { useState } from 'react';
 
 function Profile() {
 
-    //j'affiche une page d'erreur si utilisateur pas connecté
     const token = useSelector((state) => state.login.token);
+    const user = useSelector((state) => state.user);
+    const [editName, setEditName] = useState(false);
+
+
+    //j'affiche une page d'erreur si utilisateur pas connecté
 
     if (!token) {
         return (
@@ -19,50 +25,29 @@ function Profile() {
     return (
         <>
             <Header />
-            <div>
-                <h2>Edit user info</h2>
-                <form>
-                    <div className='edit-info'>
-                        <label>User Name:</label>
-                        <input
-                            type='text'
-                        />
-                    </div>
-                    <div className='edit-info'>
-                        <label>First Name:</label>
-                        <input
-                            type='text'
-                            // disabled désactive le champ du formulaire
-                            disabled
-                        />
-                    </div>
-                    <div className='edit-info'>
-                        <label>Last Name:</label>
-                        <input
-                            type='text'
-                            disabled
-                        />
-                    </div>
-                    <div className='edit-all-buttons'>
-                        <button className='edit-button' type='submit'>
-                            Save
-                        </button>
-                        <button className='edit-button' type='button'
-                        >
-                            Cancel
-                        </button>
-                    </div>
-                </form>
-                <main className='main bg-dark'>
+            <div className='main bg-dark'>
+                <main>
                     <div className='greeting-content'>
-                        <h1 className='greeting'>
-                            Welcome back <br />...
-                        </h1>
-                        { /* devoir probablement crée un composant qui affichera nom et prenom */}
-                        <button className='edit-button'>
-                            Edit Name
-                        </button>
+                        {/* je creer une condition pour faire apparaitre le formulaire edit name */}
+                        {!editName ?
+                            <>
+                                <h1 className='greeting'>
+                                    { /* Je récupère le nom et prenom de l'user pour l'afficher ici */}
+                                    Welcome back <br /> {user.firstname} {user.lastname}</h1>
+                                { /* au click sur le bouton j'ouvre le formulaire de l'user pour pouvoir modifier le username */}
+                                <button className='edit-button' onClick={() => setEditName(true)}
+                                >
+                                    Edit Name
+                                </button>
+                            </>
+                            :
+                            <>
+                                <FormProfile />
+
+                            </>
+                        }
                     </div>
+
                     <Account
                         title='Argent Bank Checking (x8349)'
                         amount='$2,082.79'
