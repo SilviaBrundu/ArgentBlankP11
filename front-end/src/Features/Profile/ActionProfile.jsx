@@ -24,6 +24,8 @@ export const allDataProfile = (username, firstname, lastname) => {
     };
 };
 
+// ajout pour edit username
+
 export const updateUserUsername = createAsyncThunk(
     "profile/updateUserUsername",
     //get state() permet de mettre a jour l'etat (le nouveau username enregistrer) au niveau du login
@@ -31,7 +33,7 @@ export const updateUserUsername = createAsyncThunk(
         const token = getState().login.token;
 
         try {
-            //on attendque la promesse soit resolu
+            //on attend que la promesse soit resolu
             await updateUserNameProfile(token, updateUsername);
             //et on retourne leresultat (le nouveau username)
             return updateUsername;

@@ -39,6 +39,9 @@ export const findProfile = async (token) => {
   }
 };
 
+// ajout pour edit username
+
+
 //PUT met à jour l'intégralité de la ressource avec les données transmises ou créer une ressource 
 export const updateUserNameProfile = async (token, updateUsername) => {
   try {

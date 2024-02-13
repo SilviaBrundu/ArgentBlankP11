@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { findProfileInfo, updateUserUsername } from '../../Features/Profile/ActionProfile';
 
 
+// ajout pour edit username
 
 
 function FormProfile() {
@@ -49,6 +50,7 @@ function FormProfile() {
                         type='text'
                         value={updateUsername}
                         onChange={editUserName}
+                        required
                     />
                 </div>
                 <div className='edit-info'>
