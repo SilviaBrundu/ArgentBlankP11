@@ -1,9 +1,9 @@
-import Account from '../../components/Account';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import ErrorProfileAccess from "../../components/ErrorProfileAccess"
-import './index.css';
-import FormProfile from '../../components/FormProfile';
+import Account from '../../components/Account/Account';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import ErrorProfileAccess from "../../components/ErrorProfileAccess/ErrorProfileAccess"
+import './Profile.css';
+import FormProfile from '../../components/FormProfile/FormProfile';
 import { useSelector } from "react-redux";
 import { useState } from 'react';
 

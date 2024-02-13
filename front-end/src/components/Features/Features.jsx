@@ -1,4 +1,4 @@
-import './index.css'
+import './Features.css'
 
 function Features({ image, alt, title, text }) {
 	return (

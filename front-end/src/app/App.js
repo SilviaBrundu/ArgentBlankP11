@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from '../pages/Home';
-import Signin from '../pages/Signin';
-import Profile from '../pages/Profile';
-import PageNotFound from '../pages/PageNotFound';
+import Home from '../pages/Home/Home';
+import Signin from '../pages/Signin/Signin';
+import Profile from '../pages/Profile/Profile';
+import PageNotFound from '../pages/PageNotFound/PageNotFound';
 
 function App() {
   return (
@@ -18,5 +18,5 @@ function App() {
     </div>
   )
 }
-  
+
 export default App

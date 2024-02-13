@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../Features/Login/ActionLogin';
 import { useNavigate } from 'react-router-dom';
-
-import './index.css'
+import './FormLogin.css'
 
 function Form() {
     //use dispatch permet de récupérer la fonction dispatch au sein 

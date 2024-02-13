@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../../designs/img/argentBankLogo.webp';
-import './index.css';
+import './Header.css';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cleanToken } from '../../Features/Login/ReducerLogin';
@@ -37,29 +37,29 @@ function Header() {
           />
         </NavLink>
         <div className='navbar-container'>
-				  { token ? 
-					  <div className='navbar-container'>
-						  <NavLink to='/profile' className='navbar_signin'>
-							  <i className='fa fa-user-circle iconSignin'></i>
-							  {username}
-						  </NavLink> 
-						  <NavLink to='/' className='navbar_signin' onClick={signOut}>
-							  <i className='fa fa-sign-out iconSignin'></i>
-							  Sign Out
-						  </NavLink>
-					  </div>
-					  :
-					  <div>
-						  <NavLink to='/signin' className='navbar_signin'>
+          {token ?
+            <div className='navbar-container'>
+              <NavLink to='/profile' className='navbar_signin'>
+                <i className='fa fa-user-circle iconSignin'></i>
+                {username}
+              </NavLink>
+              <NavLink to='/' className='navbar_signin' onClick={signOut}>
+                <i className='fa fa-sign-out iconSignin'></i>
+                Sign Out
+              </NavLink>
+            </div>
+            :
+            <div>
+              <NavLink to='/signin' className='navbar_signin'>
                 <i className='fa-solid fa-circle-user iconSignin'></i>
-							  Sign In
-						  </NavLink>
-					  </div>
-				  }
-			  </div>
+                Sign In
+              </NavLink>
+            </div>
+          }
+        </div>
       </nav>
     </header>
   )
 }
-  
+
 export default Header

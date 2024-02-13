@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import './index.css';
-import Header from '../Header';
-import Footer from '../Footer';
+import './ErrorProfileAccess.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 function ErrorProfileAccess() {
     return (

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './index.css';
+import './Error.css';
 //permet de renvoyer sur la page d'accueil
 
 function Error() {
@@ -13,12 +13,12 @@ function Error() {
             </div>
             <div className='error_container_link'>
                 <Link to='/' className='error_link'>
-                Return to the home page
+                    Return to the home page
                 </Link>
                 {/* Link remplace la balise a en react  */}
             </div>
         </div>
     )
 }
- 
+
 export default Error

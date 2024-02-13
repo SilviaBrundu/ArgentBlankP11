@@ -1,5 +1,5 @@
 
-import './index.css';
+import './FormProfile.css';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { findProfileInfo, updateUserUsername } from '../../Features/Profile/ActionProfile';
