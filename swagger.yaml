@@ -101,6 +101,167 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+  # PHASE 2
+  /user/{accountId}/transactions:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - User Transactions
+      summary: User Transactions
+      description: Returns a list of user transaction
+      parameters:
+        - in: header
+          type: string
+          name: Authorization
+          description: Bearer token
+          required: true
+        - in: path
+          name: accountId
+          # il faut l'id du compte pour trouver les transactions
+          description: transactions retrieve with user id
+          type: string
+          required: true
+      responses:
+        '200':
+          description: transactions successfully
+          schema:
+            $ref: '#/definitions/userTransactions'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /user/{accountId}/transactions/{transactionId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - User Transactions
+      summary: User Transaction Details
+      description: Return a transaction details
+      parameters:
+        - in: header
+          type: string
+          name: Authorization
+          description: Bearer token
+          required: true
+        - in: path
+          name: transactionId
+          description: transactions details retrieve with transaction id
+          required: true
+          type: string
+        - in: path
+          name: accountId
+          # il faut l'id du compte pour trouver les transactions
+          description: transactions details retrieve with user id
+          type: string
+          required: true
+      responses:
+        '200':
+          description: transaction details successfully
+          schema:
+            $ref: '#/definitions/userTransactionsDetails'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+    # methode put pour changer categorie ou note
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - User Transactions
+      summary: User Transaction category & notes
+      description: update transaction category or notes
+      parameters:
+        - in: header
+          type: string
+          name: Authorization
+          description: Bearer token
+          required: true
+        - in: path
+          name: transactionId
+          description: Transaction Id to be updated
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: Update user transaction category / notes
+          required: true
+          schema:
+            $ref: '#/definitions/userTransactionUpdate'
+      responses:
+        '200':
+          description: User transaction updated successully
+          schema:
+            $ref: '#/definitions/userTransactionsDetails'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+    # methode post pour ajouter une note
+    post:
+      security:
+        - Bearer: []
+      tags:
+        - User Transactions
+      summary: User Transaction Add Notes
+      description: User Transaction Add Notes
+      parameters:
+        - in: header
+          type: string
+          name: Authorization
+          description: Bearer token
+          required: true
+        - in: path
+          name: transactionId
+          description: Transaction Id to be updated
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: Update user transaction notes
+          required: true
+          schema:
+            $ref: '#/definitions/userTransactionsDetailsNotes'
+      responses:
+        '200':
+          description: User transaction notes updated successully
+          schema:
+            $ref: '#/definitions/userTransactionsDetails'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+    delete:
+      security:
+        - Bearer: []
+      tags:
+        - User Transactions
+      summary: User Transaction Notes deleting
+      description: deleting transaction notes
+      parameters:
+        - in: header
+          type: string
+          name: Authorization
+          description: Bearer token
+          required: true
+        - in: path
+          name: transactionId
+          description: Transaction Id to be updated
+          required: true
+          type: string
+      responses:
+        '200':
+          description: User transaction notes deleted successully
+          schema:
+            $ref: '#/definitions/TransactionDetailsDelete'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+
+  
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -155,4 +316,54 @@ definitions:
     type: object
     properties:
       userName:
+        type: string
+  # PHASE 2
+  userTransactions:
+    type: object
+    properties:
+      body:
+        type: array
+        items:
+          type: object
+          properties:
+            transactionId:
+              type: string
+          amount:
+            type: number
+          date:
+            type: string
+          description:
+            type: string
+          balance:
+            type: number
+  userTransactionsDetails:
+    type: object
+    properties:
+      transactionId:
+        type: string
+      amount:
+        type: number
+      date:
+        type: string
+      description:
+        type: string
+      balance:
+        type: number
+      transactiontype:
+        type: string
+      category:
+        type: string
+      notes:
+        type: string
+  userTransactionUpdate:
+    type: object
+    properties:
+      category:
+        type: string
+      notes:
+        type: string
+  userTransactionsDetailsNotes:
+    type: object
+    properties:
+      notes:
         type: string
