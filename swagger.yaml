@@ -184,6 +184,12 @@ paths:
           description: Transaction Id to be updated
           required: true
           type: string
+        - in: path
+          name: accountId
+          # il faut l'id du compte pour trouver les transactions
+          description: account Id to be updated
+          type: string
+          required: true
         - in: body
           name: body
           description: Update user transaction category / notes
@@ -218,6 +224,12 @@ paths:
           description: Transaction Id to be updated
           required: true
           type: string
+        - in: path
+          name: accountId
+          # il faut l'id du compte pour trouver les transactions
+          description: account Id to be updated
+          type: string
+          required: true
         - in: body
           name: body
           description: Update user transaction notes
@@ -251,6 +263,12 @@ paths:
           description: Transaction Id to be updated
           required: true
           type: string
+        - in: path
+          name: accountId
+          # il faut l'id du compte pour trouver les transactions
+          description: account Id to be updated
+          type: string
+          required: true
       responses:
         '200':
           description: User transaction notes deleted successully
@@ -325,8 +343,8 @@ definitions:
         type: array
         items:
           type: object
-          properties:
-            transactionId:
+        properties:
+          transactionId:
               type: string
           amount:
             type: number
@@ -367,3 +385,35 @@ definitions:
     properties:
       notes:
         type: string
+  TransactionDetailsDelete:
+    type: object
+    properties:
+      status:
+        type: integer
+        description: request response status
+      body:
+        type: object
+        properties:
+          transactionId:
+            type: string
+          amount:
+            type: number
+            description: transaction amount
+          date:
+            type: string
+            description: transaction date
+          description:
+            type: string
+            description: transaction description
+          balance:
+            type: number
+            description: account balance
+          transactiontype:
+            type: string
+            description: account balance
+          category:
+            type: string
+            description: transaction category
+          notes:
+            type: string
+            description: transaction notes
