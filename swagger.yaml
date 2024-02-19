@@ -398,22 +398,15 @@ definitions:
             type: string
           amount:
             type: number
-            description: transaction amount
           date:
             type: string
-            description: transaction date
           description:
             type: string
-            description: transaction description
           balance:
             type: number
-            description: account balance
           transactiontype:
             type: string
-            description: account balance
           category:
             type: string
-            description: transaction category
           notes:
             type: string
-            description: transaction notes
