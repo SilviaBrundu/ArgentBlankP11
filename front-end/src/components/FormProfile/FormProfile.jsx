@@ -24,10 +24,9 @@ function FormProfile() {
     //a l'envoie du formulaire 
     const submit = async (e) => {
         e.preventDefault();
-
         try {
             const response = dispatch(updateUserUsername(updateUsername));
-            dispatch(findProfileInfo(token));
+            response.then(() => dispatch(findProfileInfo(token)))
             console.log('Username update :', response);
         } catch (error) {
             console.error('Error edit username:', error);
