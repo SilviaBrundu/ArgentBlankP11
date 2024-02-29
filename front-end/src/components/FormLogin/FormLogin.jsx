@@ -5,15 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import './FormLogin.css'
 
 function Form() {
-    //use dispatch permet de récupérer la fonction dispatch au sein 
-    //de notre composant afin de pouvoir dispatch des actions Redux.
     const dispatch = useDispatch();
     //useSelector est appelé à chaque fois que le composant est rendu 
     //et à chaque fois qu’une action est dispatch.
     //Chaque appel à useSelector crée une nouvelle souscription au store Redux.
     //pour error on recupère le state en cas d'erreur sur le login
     const error = useSelector((state) => state.login.error);
-    //useNavigation est un crochet qui donne accès à navigation
     const navigate = useNavigate();
 
     //j'initialise le state des deux variable a null 

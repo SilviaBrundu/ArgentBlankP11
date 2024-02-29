@@ -19,7 +19,6 @@ function ErrorProfileAccess() {
                         <Link to='/signin' className='error_link'>
                             Return to the sign in page
                         </Link>
-                        {/* Link remplace la balise a en react  */}
                     </div>
                 </div>
             </main>
